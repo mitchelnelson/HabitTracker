@@ -1,6 +1,9 @@
 // Libraries
 const rl = require('readline-sync');
 const mongoose = require('mongoose');
+const x = require('hide-terminal-cursor');
+
+x();
 
 // Models
 const { Habit, Toggle } = require('./model');
@@ -58,8 +61,8 @@ q. Exit app.\n\n`;
 
 // Main function
 
-function greet () {
-	dailyIncrement();
+async function greet () {
+	await dailyIncrement();
 	clearConsoleAndScrollBuffer();
 
 	let answer = rl.keyIn(qPrompt, { limit: ['1', '2', '3', '4', 'q'] });
